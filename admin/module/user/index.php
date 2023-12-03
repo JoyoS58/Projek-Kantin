@@ -62,7 +62,7 @@
                                         <td></td>
                                         <td>
                                             <a href="index.php?page=anggota/edit&id=<?php //echo $row['user_id']; ?>" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                                            <a href="fungsi/hapus.php?anggota=hapus&id=<?php //echo $row['user_id']; ?>" onclick="javascript:return confirm('Hapus Data User ?');" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> delete</a>
+                                            <a href="fungsi/hapus.php?anggota=hapus&id=<?php //echo $row['user_id']; ?>" onclick="javascript:return confirm('Apakah yakin ingin menghapus data');" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> delete</a>
                                         </td>
                                     </tr>
                                 <?php //} ?>
@@ -79,15 +79,15 @@
                                 <form action="#" method="POST">
                                     <div class="modal-body">
                                         <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Nama:</label>
+                                            <label for="recipient-name" class="col-form-label">Nama</label>
                                             <input type="text" name="nama" class="form-control" id="recipient-name" >
                                         </div>
                                         <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Username:</label>
+                                            <label for="recipient-name" class="col-form-label">Username</label>
                                             <input type="text" name="username" class="form-control" id="recipient-name" >
                                         </div>
                                         <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Level:</label>
+                                            <label for="recipient-name" class="col-form-label">Level</label>
                                             <select name="level" class="form-control" id="recipient-name" aria-label="Default select example">
                                                 <option selected>Pilih Level</option>
                                                 <?php
@@ -102,12 +102,12 @@
                                             </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="recipient-name" class="form-label">Password:</label>
+                                            <label for="recipient-name" class="form-label">Password</label>
                                             <input name="password" class="form-control" id="recipient-name">
                                         </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Simpan</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Tambah</button>    
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Batal</button>
                                     </div>
                                 </form>
                             </div>

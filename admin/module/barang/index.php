@@ -22,7 +22,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-2">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal" data-bs-whatever="@mdo">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal" data-whatever="@mdo">
                                 <i class="fa fa-plus"></i> Tambah Barang
                             </button>
                         </div>
@@ -74,7 +74,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Barang</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <form action="#" method="POST">
                                     <div class="modal-body">
@@ -121,7 +121,7 @@
                                             </select>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Simpan</button>
                                     </div>
                                 </form>

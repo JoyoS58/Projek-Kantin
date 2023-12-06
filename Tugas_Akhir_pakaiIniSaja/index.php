@@ -4,21 +4,21 @@ if (session_status()=== PHP_SESSION_NONE){
 }
 if(!empty($_SESSION['level'])){
     require 'config/koneksi.php';
-    require 'fungsi/pesan_kilat.php';
+    require 'function/pesanKilat.php';
     if($_SESSION['level']=="kasir"){
-        include 'admin/template/head.php';
+        include 'head.php';
         if(!empty($_GET['page'])){
-            include 'admin/module/' . $_GET['page'] . '/index.php';
+            include 'user/' . $_GET['page'] . '/index.php';
         } else{
-            include 'admin/template/home.php';
+            include 'home.php';
         }
-        include 'admin/template/Footer.php';
+        include 'Footer.php';
     } else{
-        include 'admin/template/headPemilik.php';
+        include 'headPemilik.php';
         if(!empty($_GET['page'])){
-            include 'admin/module/' . $_GET['page'] . '/index.php';
+            include 'user' . $_GET['page'] . '/index.php';
         } else{
-            include 'admin/template/homePemilik.php';
+            include 'homePemilik.php';
         }
     }
 } else{

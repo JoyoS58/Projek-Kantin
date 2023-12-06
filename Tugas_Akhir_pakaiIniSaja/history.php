@@ -39,10 +39,13 @@
                                 <td>Cash</td>
                                 <td>01-12-2023</td>
                         </tr>
-                    <?php
-                    include config/koneksi.php;
+                        <?php
+                        if(session_status()===PHP_SESSION_NONE){
+                            session_start();
+                        }
+                    include "config/koneksi.php";
 
-                    $sql = "SELECT no, nama_barang, kategori, harga_total, jenis_pembayaran, tanggal_pembelian FROM Transaksi";
+                    $sql = "SELECT no, nama_barang, kategori, harga_total, jenis_pembayaran, tanggal_pembelian FROM detail_Transaksi";
                     $result = $conn->query($sql);
                 
                     if ($result->num_rows > 0) {
@@ -54,9 +57,7 @@
                       echo "0 results";
                     }
                     $conn->close();
-                    ?>
-
-                    
+                        ?>
                     </tbody>
                 </table>
         </div>

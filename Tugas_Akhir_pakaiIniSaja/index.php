@@ -3,10 +3,10 @@ if (session_status()=== PHP_SESSION_NONE){
     session_start();
 }
 $user=$_GET['username'];
-if(!empty($user)){
+if(empty($user)){
     require 'config/koneksi.php';
     require 'function/pesanKilat.php';
-    if($user=="kasir"){
+    if(empty($user)){
         if(!empty($_GET['page'])){
             include  $_GET['page'] . '/index.php'; // untuk kasir kayak gini
         } else{

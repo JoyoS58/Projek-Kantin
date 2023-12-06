@@ -1,4 +1,5 @@
 <!-- KALAU KALIAN SUDAH PULL SIAP-SIAP ADA ERROR CSS YA ^_^ -->
+<link rel="stylesheet" href="components/css/styleSidebarKasir.css">
 <nav>
         <?php
         require 'Head.php';

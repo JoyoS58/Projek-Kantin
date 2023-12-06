@@ -8,7 +8,7 @@ if(!empty($user)){
     require 'function/pesanKilat.php';
     if($user=="kasir"){
         if(!empty($_GET['page'])){
-            // include 'admin/module/' . $_GET['page'] . '/index.php';
+            include  $_GET['page'] . '/index.php'; // untuk kasir kayak gini
         } else{
             include 'home.php';
         }
@@ -17,7 +17,7 @@ if(!empty($user)){
     } else{
         include 'headPemilik.php';
         if(!empty($_GET['page'])){
-            // include 'admin/module/' . $_GET['page'] . '/index.php';
+            include $_GET['page'] . '/index.php'; // kalau untuk pemilik KAYAKNYA sama
         } else{
             include 'homePemilik.php';
         }

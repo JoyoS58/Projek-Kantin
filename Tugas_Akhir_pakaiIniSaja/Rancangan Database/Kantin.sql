@@ -1,4 +1,5 @@
--- Active: 1700019936290@@127.0.0.1@3306@projekkantin
+-- Active: 1683684472100@@127.0.0.1@3306@kantin
+
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
 /* Created on:     30/11/2023 23:56:46                          */
@@ -7,7 +8,7 @@
 -- agar tidak error kalian jalankan drop DATABASE namaDatabaseKalian
 -- habis itu CREATE DATABASE namaDatabaseKalian
 -- habis itu silahkan jalankan semua
-use projekkantin;
+use kantin;
 
 drop table if exists DETAIL_TRANSAKSI;
 

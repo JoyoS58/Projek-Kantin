@@ -31,13 +31,24 @@ include 'function/pesanKilat.php';
       }
       ?>
       <div class="user-box">
-        <input type="text" name="Username" placeholder="Username" required="">
+        <input type="text" name="username" placeholder="Username" required="">
         <label>Username</label>
       </div>
       <div class="user-box">
-        <input type="password" name="Password" placeholder="Password" required="">
+        <input type="password" name="password" placeholder="Password" required="">
         <label>Password</label>
       </div>
+      <script>
+        console.log("href harus ada satu saja yaitu dibagian form action");
+        console.log("jika ada dua maka yang dijalankan href terakhir, ");
+        console.log("akhirnya waktu tekan tombol login, gak bisa kemana-mana soalnya di index butuh username");
+      </script>
+      <!-- <button> Misal aku cuma pake button jadi gini, kan ini ori nya pakai, lah kalau pakai itu nanti gak masuk -->
+        <!-- <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </button> -->
     
       <a href="index.php"> 
         <span></span>

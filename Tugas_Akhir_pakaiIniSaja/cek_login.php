@@ -9,7 +9,7 @@ include "config/koneksi.php";
     $username= antiinjection($koneksi, $_POST['username']);
     $password= antiinjection($koneksi, $_POST['password']);
 
-    $query= "SELECT username, level, salt, password as hashed_password from user where username = '$username'";
+    $query= "SELECT username, level, password as hashed_password from user where username = '$username'";
     $result=mysqli_query($koneksi, $query);
     $row=mysqli_fetch_assoc($result);
     mysqli_close($koneksi);

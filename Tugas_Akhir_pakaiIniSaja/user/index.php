@@ -142,7 +142,7 @@
   </div>
   <!-- Bootstrap JS (optional) -->
   <?php 
-  require 'menu.php';
+  require($_SERVER['DOCUMENT_ROOT'] . '/Tugas_Akhir/Projek_kantin/Tugas_Akhir_pakaiIniSaja/menu.php');
   ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

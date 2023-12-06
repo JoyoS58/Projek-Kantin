@@ -1,6 +1,6 @@
 <!-- KALAU KALIAN SUDAH PULL SIAP-SIAP ADA ERROR CSS YA ^_^ -->
 <link rel="stylesheet" href="components/css/styleSidebarKasir.css">
-<nav>
+    <nav>
         <?php
         require 'Head.php';
         ?>
@@ -19,8 +19,7 @@
               </a>
             </li>
             <li class="list">
-              <a aria-current="page" href="index.php?page=kasir" class="nav-link"> 
-                <!-- untuk href lain tambahkan kayak gini + kasih aria-current ya  TERGANTUNG LOKASI FILENYA!!!-->
+              <a aria-current="page" href="index.php?page=kasir" class="nav-link">
                 <i class="bx bx-bar-chart-alt-2 icon"></i>
                 <span class="link">Transaksi</span>
               </a>

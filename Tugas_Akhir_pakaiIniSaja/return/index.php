@@ -33,28 +33,10 @@
                                 <td>1</td>
                                 <td>10.000</td>
                         </tr>
-
-                        <?php
-                        include "config/koneksi.php";
-                        $sql = "SELECT no, nama_supplier, nama_barang_terjual, jumlah, harga_total FROM transaksi_supplier";
-                        $result = $conn->query($sql);
-                    
-                        if ($result->num_rows > 0) {
-                          // output data of each row
-                          while($row = $result->fetch_assoc()) {
-                            echo "<tr><td>" . $row["no"]. "</td><td>" . $row["nama_supplier"]. "</td><td>" . $row["nama_barang_terjual"]. "</td><td>" . $row["jumlah"]. "</td><td>" . $row["harga_total"]. "</td></tr>";
-                          }
-                        } else {
-                          echo "0 results";
-                        }
-                        $conn->close();
-                        ?>
                     </tbody>
                 </table>
         </div>
     </div>
     </div>
-    <?php require 'menu.php';?>
+    <?php //require 'menu.php';?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>

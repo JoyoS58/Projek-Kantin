@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="components/css/styleHomeKasir.css">
+
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -32,5 +32,4 @@
     require 'menu.php';
     ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+

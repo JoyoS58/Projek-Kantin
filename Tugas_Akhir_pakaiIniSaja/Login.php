@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include 'function/pesanKilat.php';
+//include fungsi/pesan_kilat.php;
 ?>
 
 <!DOCTYPE html>
@@ -22,20 +22,20 @@ include 'function/pesanKilat.php';
   </div>
   <div class="login-box">
     <h2>Login</h2>
-    <form action="cek_login.php" method="post">
+    <form action="index.php" method="post"> <!-- index dulu karena cek login backend -->
       <?php
       if (isset($_SESSION['_flashdata'])) {
         foreach ($_SESSION['_flashdata'] as $key => $val) {
-            echo get_flashdata($key);
+            //echo get_flashdata($key);
         }
       }
       ?>
       <div class="user-box">
-        <input type="text" name="username" placeholder="Username" required="">
+        <input type="text" name="username" placeholder="username" required>
         <label>Username</label>
       </div>
       <div class="user-box">
-        <input type="password" name="password" placeholder="Password" required="">
+        <input type="password" name="password" placeholder="Password" required>
         <label>Password</label>
       </div>
       <script>
@@ -43,20 +43,17 @@ include 'function/pesanKilat.php';
         console.log("jika ada dua maka yang dijalankan href terakhir, ");
         console.log("akhirnya waktu tekan tombol login, gak bisa kemana-mana soalnya di index butuh username");
       </script>
-      <!-- <button> Misal aku cuma pake button jadi gini, kan ini ori nya pakai, lah kalau pakai itu nanti gak masuk -->
-        <!-- <span></span>
-        <span></span>
-        <span></span>
-        Submit
-      </button> -->
-    
-      <a href="index.php"> 
+      <!-- sementara pake home.php untuk login -->
+      <!-- <a href="index.php">  -->
+        <button>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         Submit
-      </a>
+        </button>
+        
+      <!-- </a> -->
     </form>
   </div>
 </a>

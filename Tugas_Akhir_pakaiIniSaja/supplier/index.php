@@ -6,20 +6,16 @@
   <title>CRUD Tabel Supplier</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../components/css/styleDataBarang.css">
+  <link rel="stylesheet" href="components/css/styleDataBarang.css">
 </head>
 <body>
-  <!-- Judul -->
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="canvas">
-    <!-- tombol tambah supplier -->
-    <div class="container">
-        <div class="text-start mb-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal", data-bs-target="#addSupplier" >
-                add
-            </button>   
-        </div>
+  <div class="container">
+    <div class="text-start mb-3">
+      <!-- Tombol Add -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSupplier">Add</button>
     </div>
+    <hr>
     <div class="table-responsive">
       <!-- Tabel -->
       <table class="table table-striped table-bordered">
@@ -41,7 +37,7 @@
             <td>081xxx</td>
             <td>Donut</td>
             <td>
-              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
               <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
             </td>
           </tr>
@@ -52,7 +48,7 @@
             <td>082xxx</td>
             <td>Risol</td>
             <td>
-              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
               <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
             </td>
           </tr>
@@ -63,7 +59,7 @@
             <td>083xxx</td>
             <td>Tahu</td>
             <td>
-              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
               <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
             </td>
           </tr>
@@ -104,7 +100,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editModalLabel">Edit data supplier</h5>
+          <h5 class="modal-title" id="editModalLabel">Edit Supplier</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -133,7 +129,6 @@
     </div>
   </div>
   <!-- Bootstrap JS (optional) -->
-  <?php require '../menu.php'?>
+  <?php //require 'menu.php'?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+

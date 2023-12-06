@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halaman dengan Card dan Grafik</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../Tugas_Akhir_pakaiIniSaja/components/css/styleHomeKasir.css">
-  <!-- <style>
-    /* Tambahkan CSS khusus di sini jika diperlukan */
-    .graph-box {
-      height: 300px; /* Ganti dengan tinggi yang diinginkan untuk kotak grafik */
-      border: 1px solid #ddd; /* Ganti dengan gaya border yang diinginkan */
-      margin-top: 100px;
-    }
-  </style> -->
-</head>
-<body>
+
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -46,11 +29,8 @@
   </div>
 
     <?php
-    require 'menu.php';
+    // require 'menu.php';
     ?>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -13,13 +13,13 @@
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="home.php" class="nav-link">
+              <a href="index.php" class="nav-link">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Dashboard</span>
               </a>
             </li>
             <li class="list">
-              <a href="../Tugas_Akhir_pakaiIniSaja/kasir/pilihBarang.php" class="nav-link">
+              <a href="pilihBarang.php" class="nav-link">
                 <i class="bx bx-bar-chart-alt-2 icon"></i>
                 <span class="link">Transaksi</span>
               </a>

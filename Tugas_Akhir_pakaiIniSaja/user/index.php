@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,66 +9,67 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="components/css/styleDataAdmin.css">
 </head>
+
 <body>
-    <div class="canvas">
-  <div class="container">
-    <div class="text-start mb-3">
-      <!-- Tombol Add -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add</button>
-    </div>
-    <hr>
-    <div class="table-responsive">
-      <!-- Tabel -->
-      <table class="table table-striped table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Username</th>
-            <th scope="col">Password</th>
-            <th scope="col">Level</th>
-            <th scope="col">Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Rafly</td>
-            <td>Rafly123</td>
-            <td>Raflyxxx</td>
-            <td>Pemilik</td>            
-            <td>
-              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
-              <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Ikhwan</td>
-            <td>Ikhwan121</td>
-            <td>Ikhwanxxx</td>
-            <td>Kasir</td>
-            <td>
-              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
-              <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Joyo</td>
-            <td>Joyo111</td>
-            <td>Joyoxxx</td>
-            <td>Kasir</td>
-            <td>
-              <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
-              <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="canvas">
+    <div class="container">
+      <div class="text-start mb-3">
+        <!-- Tombol Add -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add</button>
+      </div>
+      <hr>
+      <div class="table-responsive">
+        <!-- Tabel -->
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Username</th>
+              <th scope="col">Password</th>
+              <th scope="col">Level</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Rafly</td>
+              <td>Rafly123</td>
+              <td>Raflyxxx</td>
+              <td>Pemilik</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
+              <button type=" button" class="btn btn-sm btn-danger btn-action">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Ikhwan</td>
+              <td>Ikhwan121</td>
+              <td>Ikhwanxxx</td>
+              <td>Kasir</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
+              <button type=" button" class="btn btn-sm btn-danger btn-action">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Joyo</td>
+              <td>Joyo111</td>
+              <td>Joyoxxx</td>
+              <td>Kasir</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
+              <button type=" button" class="btn btn-sm btn-danger btn-action">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-    </div>
 
   <!-- Modal Input -->
   <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
@@ -89,12 +91,23 @@
               <input type="text" class="form-control" id="kategori">
             </div>
             <div class="mb-3">
-              <label for="stok" class="form-label">Password</label>
-              <input type="number" class="form-control" id="stok">
+              <label for="recipient-name" class="col-form-label">Level</label>
+              <select name="level" class="form-control" id="recipient-name" aria-label="Default select example">
+                <option selected>Pilih Level</option>
+                <?php
+                // $query2="SELECT * from jabatan order by jabatan asc";
+                // $result2=mysqli_query($koneksi, $query2);
+                // while($row2=mysqli_fetch_assoc($result2)){
+                ?>
+                <option value=""></option>
+                <?php
+                // }
+                ?>
+              </select>
             </div>
             <div class="mb-3">
-              <label for="stok" class="form-label">Level</label>
-              <input type="text" class="form-control" id="supplier">
+              <label for="recipient-name" class="form-label">Password</label>
+              <input name="password" class="form-control" id="recipient-name">
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>
@@ -128,7 +141,18 @@
             </div>
             <div class="mb-3">
               <label for="editStok" class="form-label">Level</label>
-              <input type="number" class="form-control" id="editStok">
+              <select name="level" class="form-control" id="recipient-name" aria-label="Default select example">
+                <option selected>Pilih Level</option>
+                <?php
+                // $query2="SELECT * from jabatan order by jabatan asc";
+                // $result2=mysqli_query($koneksi, $query2);
+                // while($row2=mysqli_fetch_assoc($result2)){
+                ?>
+                <option value=""></option>
+                <?php
+                // }
+                ?>
+              </select>
             </div>
             <div class="mb-3">
               <label for="editSupplier" class="form-label">Supplier</label>
@@ -141,9 +165,10 @@
     </div>
   </div>
   <!-- Bootstrap JS (optional) -->
-  <?php 
+  <?php
   require($_SERVER['DOCUMENT_ROOT'] . '/Tugas_Akhir/Projek_kantin/Tugas_Akhir_pakaiIniSaja/menu.php');
   ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

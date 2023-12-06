@@ -24,9 +24,9 @@ create table DETAIL_TRANSAKSI
    ID_DETAIL_TRANSAKSI  int not null,
    ID_PRODUK            int,
    ID_TRANSAKSI         int,
-   QTY                  int not null,
-   HARGA                decimal(10,3) not null,
-   SUB_TOTAL            decimal(10,3) not null,
+   QTY                  int,
+   HARGA                decimal(10,3),
+   SUB_TOTAL            decimal(10,3),
    primary key (ID_DETAIL_TRANSAKSI)
 );
 
@@ -50,7 +50,7 @@ create table SUPPLIER
 (
    ID_SUPPLIER          int not null,
    NAMA_SUPPLIER        varchar(100) not null,
-   NO_TELP              varchar(15) not null,
+   NO_TELP              varchar(15),
    primary key (ID_SUPPLIER)
 );
 
@@ -63,9 +63,9 @@ create table TRANSAKSI
    ID_USER              int,
    JENIS_PEMBAYARAN     varchar(20) not null,
    TGL_TRANSAKSI        date not null,
-   JUMLAH_BAYAR         decimal(10,3) not null,
-   SISA_BAYAR           decimal(10,3) not null,
-   TOTAL_HARGA          decimal(10,3) not null,
+   JUMLAH_BAYAR         decimal(10,3),
+   SISA_BAYAR           decimal(10,3),
+   TOTAL_HARGA          decimal(10,3),
    primary key (ID_TRANSAKSI)
 );
 
@@ -80,7 +80,7 @@ create table TRANSAKSI_SUPPLIER
    HARGA_SUPPLIER       decimal(10,3) not null,
    JUMLAH_PRODUK        int not null,
    TGL_SUPPLY           date not null,
-   "RETURN"             decimal(10,3) not null,
+   "RETURN"             decimal(10,3),
    primary key (ID_TRANSAKSI_SUPPLIER)
 );
 
@@ -90,9 +90,9 @@ create table TRANSAKSI_SUPPLIER
 create table USER
 (
    ID_USER              int not null,
-   USERNAME             varchar(50) not null,
-   PASSWORD             varchar(50) not null,
-   LEVEL                varchar(30) not null,
+   USERNAME             varchar(50),
+   PASSWORD             varchar(50),
+   LEVEL                enum('pemilik','kasir') not null,
    primary key (ID_USER)
 );
 

@@ -1,7 +1,6 @@
-
+<!-- KALAU KALIAN SUDAH PULL SIAP-SIAP ADA ERROR CSS YA ^_^ -->
 <nav>
-       
-       <?php
+        <?php
         require 'Head.php';
         ?>
       <div class="sidebar">
@@ -19,13 +18,14 @@
               </a>
             </li>
             <li class="list">
-              <a href="pilihBarang.php" class="nav-link">
+              <a aria-current="page" href="index.php?page=kasir" class="nav-link"> 
+                <!-- untuk href lain tambahkan kayak gini + kasih aria-current ya  TERGANTUNG LOKASI FILENYA!!!-->
                 <i class="bx bx-bar-chart-alt-2 icon"></i>
                 <span class="link">Transaksi</span>
               </a>
             </li>
             <li class="list">
-              <a href="dataBarang.php" class="nav-link">
+              <a aria-current="page" href="index.php?page=barang" class="nav-link">
                 <i class="bx bx-bell icon"></i>
                 <span class="link">Data Barang</span>
               </a>
@@ -37,13 +37,13 @@
               </a>
             </li>
             <li class="list">
-              <a href="dataSupplier.php" class="nav-link">
+              <a aria-current="page" href="index.php?page=supplier" class="nav-link">
                 <i class="bx bxs-truck icon"></i>
                 <span class="link">Supplier</span>
               </a>
             </li>
             <li class="list">
-              <a href="dataPenjualanSupplier.php" class="nav-link">
+              <a aria-current="page" href="index.php?page=return" class="nav-link">
                 <i class="bx bx-basket icon"></i>
                 <span class="link">Return</span>
               </a>

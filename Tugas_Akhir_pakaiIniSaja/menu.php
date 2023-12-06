@@ -34,7 +34,7 @@
               </a>
             </li>
             <li class="list">
-              <a href="pilihBarang.php" class="nav-link">
+              <a href="../Tugas_Akhir_pakaiIniSaja/kasir/pilihBarang.php" class="nav-link">
                 <i class="bx bx-bar-chart-alt-2 icon"></i>
                 <span class="link">Transaksi</span>
               </a>
@@ -84,6 +84,6 @@
 
     <section class="overlay"></section>
 
-    <script src="scriptMenu.js"></script>
+    <script src="../Tugas_Akhir_pakaiIniSaja/components/js/scriptMenuKasir.js"></script>
   </body>
 </html>

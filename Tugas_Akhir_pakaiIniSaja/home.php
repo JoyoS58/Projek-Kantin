@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,9 @@
   </style> -->
 </head>
 <body>
+=======
+
+>>>>>>> 80ec9abe8a4194524c1a350566d8df91a420010b
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -46,11 +50,16 @@
   </div>
 
     <?php
+<<<<<<< HEAD
     require 'menu.php';
     ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+=======
+    // require 'menu.php';
+    ?>
+>>>>>>> 80ec9abe8a4194524c1a350566d8df91a420010b
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

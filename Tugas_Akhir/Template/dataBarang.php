@@ -3,33 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRUD Tabel Supplier</title>
+  <title>CRUD Tabel Barang</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="components/css/styleDataBarang.css">
+  <link rel="stylesheet" href="styleDataBarang.css">
 </head>
 <body>
-  <!-- Judul -->
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="canvas">
-    <!-- tombol tambah supplier -->
-    <div class="container">
-        <div class="text-start mb-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal", data-bs-target="#addSupplier" >
-                add
-            </button>   
-        </div>
+  <div class="container">
+    <div class="text-start mb-3">
+      <!-- Tombol Add -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add</button>
     </div>
+    <hr>
     <div class="table-responsive">
       <!-- Tabel -->
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
             <th scope="col">No</th>
-            <th scope="col">ID Supplier</th>
-            <th scope="col">Nama</th>
-            <th scope="col">No Telepon</th>
+            <th scope="col">ID Barang</th>
             <th scope="col">Nama Barang</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Stok</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
@@ -37,9 +33,9 @@
           <tr>
             <th scope="row">1</th>
             <td>001</td>
-            <td>Ikhwan</td>
-            <td>081xxx</td>
-            <td>Donut</td>
+            <td>Produk A</td>
+            <td>Kategori A</td>
+            <td>50</td>
             <td>
               <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
               <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
@@ -48,20 +44,20 @@
           <tr>
             <th scope="row">2</th>
             <td>002</td>
-            <td>Rafly</td>
-            <td>082xxx</td>
-            <td>Risol</td>
+            <td>Produk B</td>
+            <td>Kategori B</td>
+            <td>30</td>
             <td>
               <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
               <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
             </td>
           </tr>
           <tr>
-            <th scope="row">3</th>
+            <th scope="row">2</th>
             <td>003</td>
-            <td>Joyo</td>
-            <td>083xxx</td>
-            <td>Tahu</td>
+            <td>Produk C</td>
+            <td>Kategori C</td>
+            <td>10</td>
             <td>
               <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal"">Edit</button>
               <button type="button" class="btn btn-sm btn-danger btn-action">Delete</button>
@@ -74,23 +70,31 @@
     </div>
 
   <!-- Modal Input -->
-  <div class="modal fade" id="addSupplier" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addModalLabel">Tambah Supplier</h5>
+          <h5 class="modal-title" id="addModalLabel">Tambah Barang</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <!-- Form untuk input data -->
           <form>
             <div class="mb-3">
-              <label for="namaSupplier" class="form-label">Nama</label>
-              <input type="text" class="form-control" id="namaSupplier">
+              <label for="namaBarang" class="form-label">Nama Barang</label>
+              <input type="text" class="form-control" id="namaBarang">
             </div>
             <div class="mb-3">
-              <label for="noTelp" class="form-label">No Telepon</label>
-              <input type="text" class="form-control" id="noTelp">
+              <label for="kategori" class="form-label">Kategori</label>
+              <input type="text" class="form-control" id="kategori">
+            </div>
+            <div class="mb-3">
+              <label for="stok" class="form-label">Stok</label>
+              <input type="number" class="form-control" id="stok">
+            </div>
+            <div class="mb-3">
+              <label for="stok" class="form-label">Supplier</label>
+              <input type="text" class="form-control" id="supplier">
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>
@@ -104,27 +108,31 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editModalLabel">Edit Supplier</h5>
+          <h5 class="modal-title" id="editModalLabel">Edit Barang</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <!-- Form untuk edit data -->
           <form>
             <div class="mb-3">
-              <label for="editIdSupplier" class="form-label">ID Supplier</label>
-              <input type="text" class="form-control" id="editIdSupplier">
-            </div>
-            <div class="mb-3">
-              <label for="editNamaSupplier" class="form-label">Nama Supplier</label>
-              <input type="text" class="form-control" id="editNamaSupplier">
-            </div>
-            <div class="mb-3">
-              <label for="editNoTelp" class="form-label">No Telepon</label>
-              <input type="text" class="form-control" id="editNoTelp">
+              <label for="editIdBarang" class="form-label">ID Barang</label>
+              <input type="text" class="form-control" id="editIdBarang">
             </div>
             <div class="mb-3">
               <label for="editNamaBarang" class="form-label">Nama Barang</label>
-              <input type="number" class="form-control" id="editNamaBarang">
+              <input type="text" class="form-control" id="editNamaBarang">
+            </div>
+            <div class="mb-3">
+              <label for="editKategori" class="form-label">Kategori</label>
+              <input type="text" class="form-control" id="editKategori">
+            </div>
+            <div class="mb-3">
+              <label for="editStok" class="form-label">Stok</label>
+              <input type="number" class="form-control" id="editStok">
+            </div>
+            <div class="mb-3">
+              <label for="editSupplier" class="form-label">Supplier</label>
+              <input type="text" class="form-control" id="editSupplier">
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>

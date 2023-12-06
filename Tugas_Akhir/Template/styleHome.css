@@ -1,0 +1,33 @@
+body{
+    display: flex;
+    width: auto;
+    background: linear-gradient(to top, #36CFFF, #FFFFFF);
+}
+.card{
+    width: 200px;
+    height: 100px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 200px;
+}
+.card-body{
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5;
+}
+.card-text{
+    padding-left: 10px;
+}
+.card-title{
+    font-size: 15px;
+}
+.graph-box {
+    height: 300px;
+    border: 1px solid #333;
+    margin-top: 100px;
+}

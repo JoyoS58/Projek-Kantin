@@ -22,3 +22,6 @@
         <i class="bx bx-menu menu-icon" style="margin-right: 50px;"></i>
         <h4 style="margin-top: 10px;">SIKAN</h4>
   </div>
+  <?php
+  require 'menu.php';
+  ?>

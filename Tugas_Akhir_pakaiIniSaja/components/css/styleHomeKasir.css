@@ -1,7 +1,7 @@
 body{
     display: flex;
     width: auto;
-    background: linear-gradient(to top, #36CFFF, #FFFFFF);
+    /* background: linear-gradient(to top, #36CFFF, #FFFFFF); */
 }
 .card{
     width: 200px;

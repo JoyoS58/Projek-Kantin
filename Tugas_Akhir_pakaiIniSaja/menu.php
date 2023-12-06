@@ -13,7 +13,7 @@
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="home.php" class="nav-link">
+              <a href="index.php" class="nav-link">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Dashboard</span>
               </a>

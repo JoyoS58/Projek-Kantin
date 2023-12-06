@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>Sidebar Menu | Side Navigation Bar</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="components/css/styleSidebarKasir.css">
+    <link rel="stylesheet" href="styleSidebar.css">
     <!-- Boxicons CSS -->
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
@@ -17,7 +17,7 @@
   <body>
     <nav>
         <?php
-        // require 'Head.php';
+        require 'head.php';
         ?>
       <div class="sidebar">
         <div class="logo">
@@ -34,36 +34,17 @@
               </a>
             </li>
             <li class="list">
-              <a href="pilihBarang.php" class="nav-link">
-                <i class="bx bx-bar-chart-alt-2 icon"></i>
-                <span class="link">Transaksi</span>
+              <a href="dataAdmin.php" class="nav-link">
+                <i class="bx bx-user icon"></i>
+                <span class="link">Admin</span>
               </a>
             </li>
             <li class="list">
-              <a href="dataBarang.php" class="nav-link">
-                <i class="bx bx-bell icon"></i>
-                <span class="link">Data Barang</span>
+              <a href="profile.php" class="nav-link">
+                <i class="bx bx-user-circle icon"></i>
+                <span class="link">Profile</span>
               </a>
             </li>
-            <li class="list">
-              <a href="history.php" class="nav-link">
-                <i class="bx bx-history icon"></i>
-                <span class="link">History</span>
-              </a>
-            </li>
-            <li class="list">
-              <a href="dataSupplier.php" class="nav-link">
-                <i class="bx bxs-truck icon"></i>
-                <span class="link">Supplier</span>
-              </a>
-            </li>
-            <li class="list">
-              <a href="dataPenjualanSupplier.php" class="nav-link">
-                <i class="bx bx-basket icon"></i>
-                <span class="link">Return</span>
-              </a>
-            </li>
-
           <div class="bottom-content">
             <li class="list">
               <a href="#" class="nav-link">

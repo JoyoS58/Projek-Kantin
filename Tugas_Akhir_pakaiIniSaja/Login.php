@@ -39,7 +39,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <label>Password</label>
       </div>
       <!-- sementara pake home.php untuk login -->
-      <a href="index.php"> 
+      <a href="home.php"> 
         <span></span>
         <span></span>
         <span></span>

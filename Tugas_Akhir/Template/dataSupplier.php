@@ -6,20 +6,16 @@
   <title>CRUD Tabel Supplier</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="components/css/styleDataBarang.css">
+  <link rel="stylesheet" href="styleDataBarang.css">
 </head>
 <body>
-  <!-- Judul -->
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="canvas">
-    <!-- tombol tambah supplier -->
-    <div class="container">
-        <div class="text-start mb-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal", data-bs-target="#addSupplier" >
-                add
-            </button>   
-        </div>
+  <div class="container">
+    <div class="text-start mb-3">
+      <!-- Tombol Add -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSupplier">Add</button>
     </div>
+    <hr>
     <div class="table-responsive">
       <!-- Tabel -->
       <table class="table table-striped table-bordered">

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>Sidebar Menu | Side Navigation Bar</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="components/css/styleSidebarKasir.css">
+    <link rel="stylesheet" href="styleSidebar.css">
     <!-- Boxicons CSS -->
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
@@ -17,7 +17,7 @@
   <body>
     <nav>
         <?php
-        // require 'Head.php';
+        require 'Head.php';
         ?>
       <div class="sidebar">
         <div class="logo">

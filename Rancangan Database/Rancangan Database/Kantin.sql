@@ -1,13 +1,8 @@
--- Active: 1700019936290@@127.0.0.1@3306@projekkantin
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
 /* Created on:     30/11/2023 23:56:46                          */
 /*==============================================================*/
--- ATTENTION!!!! ATTENTION!!!
--- agar tidak error kalian jalankan drop DATABASE namaDatabaseKalian
--- habis itu CREATE DATABASE namaDatabaseKalian
--- habis itu silahkan jalankan semua
-use projekkantin;
+
 
 drop table if exists DETAIL_TRANSAKSI;
 
@@ -29,9 +24,9 @@ create table DETAIL_TRANSAKSI
    ID_DETAIL_TRANSAKSI  int not null,
    ID_PRODUK            int,
    ID_TRANSAKSI         int,
-   QTY                  int,
-   HARGA                decimal(10,3),
-   SUB_TOTAL            decimal(10,3),
+   QTY                  int not null,
+   HARGA                decimal(10,3) not null,
+   SUB_TOTAL            decimal(10,3) not null,
    primary key (ID_DETAIL_TRANSAKSI)
 );
 
@@ -55,7 +50,7 @@ create table SUPPLIER
 (
    ID_SUPPLIER          int not null,
    NAMA_SUPPLIER        varchar(100) not null,
-   NO_TELP              varchar(15),
+   NO_TELP              varchar(15) not null,
    primary key (ID_SUPPLIER)
 );
 
@@ -68,9 +63,9 @@ create table TRANSAKSI
    ID_USER              int,
    JENIS_PEMBAYARAN     varchar(20) not null,
    TGL_TRANSAKSI        date not null,
-   JUMLAH_BAYAR         decimal(10,3),
-   SISA_BAYAR           decimal(10,3),
-   TOTAL_HARGA          decimal(10,3),
+   JUMLAH_BAYAR         decimal(10,3) not null,
+   SISA_BAYAR           decimal(10,3) not null,
+   TOTAL_HARGA          decimal(10,3) not null,
    primary key (ID_TRANSAKSI)
 );
 
@@ -85,7 +80,7 @@ create table TRANSAKSI_SUPPLIER
    HARGA_SUPPLIER       decimal(10,3) not null,
    JUMLAH_PRODUK        int not null,
    TGL_SUPPLY           date not null,
-   RETUR                decimal(10,3),
+   "RETURN"             decimal(10,3) not null,
    primary key (ID_TRANSAKSI_SUPPLIER)
 );
 
@@ -95,9 +90,9 @@ create table TRANSAKSI_SUPPLIER
 create table USER
 (
    ID_USER              int not null,
-   USERNAME             varchar(50),
-   PASSWORD             varchar(50),
-   LEVEL                enum('pemilik','kasir') not null,
+   USERNAME             varchar(50) not null,
+   PASSWORD             varchar(50) not null,
+   LEVEL                varchar(30) not null,
    primary key (ID_USER)
 );
 

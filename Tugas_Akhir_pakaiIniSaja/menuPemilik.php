@@ -65,6 +65,6 @@
 
     <section class="overlay"></section>
 
-    <script src="scriptMenu.js"></script>
+    <script src="../Tugas_Akhir_pakaiIniSaja/components/js/scriptMenu.js"></script>
   </body>
 </html>

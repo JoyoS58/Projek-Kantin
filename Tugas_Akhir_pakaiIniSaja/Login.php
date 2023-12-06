@@ -38,7 +38,8 @@ if (session_status() === PHP_SESSION_NONE) {
         <input type="password" name="Password" placeholder="Password" required="">
         <label>Password</label>
       </div>
-      <a href="index.php"> 
+      <!-- sementara pake home.php untuk login -->
+      <a href="home.php"> 
         <span></span>
         <span></span>
         <span></span>

@@ -12,10 +12,10 @@
     background-color: red;
     
 } */
-/* #menu{
+#menu{
   min-height: auto;
   background: linear-gradient(to top, #36CFFF, #FFFFFF);
-} */
+}
 nav {
   position: fixed;
   top: 0;

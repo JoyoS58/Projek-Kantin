@@ -17,7 +17,7 @@
   <body>
     <nav>
         <?php
-        require 'Head.php';
+        // require 'Head.php';
         ?>
       <div class="sidebar">
         <div class="logo">

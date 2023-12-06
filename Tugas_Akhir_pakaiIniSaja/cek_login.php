@@ -3,8 +3,8 @@ if(session_status()===PHP_SESSION_NONE){
     session_start();
 }
 include "config/koneksi.php";
-    include "fungsi/pesanKilat.php";
-    include "fungsi/antiInjection.php";
+    include "function/pesanKilat.php";
+    include "function/antiInjection.php";
 
     $username= antiinjection($koneksi, $_POST['username']);
     $password= antiinjection($koneksi, $_POST['password']);

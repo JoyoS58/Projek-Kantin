@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
 </head>
 <body>
   <div class="header">
-    <img src="img/Logo-JTI.png" alt="">
+    <img src="assets/Logo-JTI.png" alt="">
     <h1>Kantin JTI POLINEMA</h1>
   </div>
   <div class="login-box">
@@ -38,7 +38,8 @@ if (session_status() === PHP_SESSION_NONE) {
         <input type="password" name="Password" placeholder="Password" required="">
         <label>Password</label>
       </div>
-      <a href="#">
+      <!-- sementara pake home.php untuk login -->
+      <a href="home.php"> 
         <span></span>
         <span></span>
         <span></span>

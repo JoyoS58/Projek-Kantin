@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Sidebar Menu | Side Navigation Bar</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="components/css/styleSidebarKasir.css">
-    <!-- Boxicons CSS -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <nav>
-        <?php
-        // require 'Head.php';
+
+<nav>
+       
+       <?php
+        require 'Head.php';
         ?>
       <div class="sidebar">
         <div class="logo">
@@ -34,7 +19,7 @@
               </a>
             </li>
             <li class="list">
-              <a href="../Tugas_Akhir_pakaiIniSaja/kasir/pilihBarang.php" class="nav-link">
+              <a href="pilihBarang.php" class="nav-link">
                 <i class="bx bx-bar-chart-alt-2 icon"></i>
                 <span class="link">Transaksi</span>
               </a>
@@ -84,6 +69,5 @@
 
     <section class="overlay"></section>
 
-    <script src="../Tugas_Akhir_pakaiIniSaja/components/js/scriptMenuKasir.js"></script>
-  </body>
-</html>
+    <script src="components/js/scriptMenu.js"></script>
+    

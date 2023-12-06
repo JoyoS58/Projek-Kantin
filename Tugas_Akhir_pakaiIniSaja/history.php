@@ -39,6 +39,24 @@
                                 <td>Cash</td>
                                 <td>01-12-2023</td>
                         </tr>
+                    <?php
+                    include config/koneksi.php;
+
+                    $sql = "SELECT no, nama_barang, kategori, harga_total, jenis_pembayaran, tanggal_pembelian FROM Transaksi";
+                    $result = $conn->query($sql);
+                
+                    if ($result->num_rows > 0) {
+                      // output data of each row
+                      while($row = $result->fetch_assoc()) {
+                        echo "<tr><td>" . $row["no"]. "</td><td>" . $row["nama_barang"]. "</td><td>" . $row["kategori"]. "</td><td>" . $row["harga_total"]. "</td><td>" . $row["jenis_pembayaran"]. "</td><td>" . $row["tanggal_pembelian"]. "</td></tr>";
+                      }
+                    } else {
+                      echo "0 results";
+                    }
+                    $conn->close();
+                    ?>
+
+                    
                     </tbody>
                 </table>
         </div>

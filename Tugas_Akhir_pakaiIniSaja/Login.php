@@ -45,13 +45,13 @@ if (session_status() === PHP_SESSION_NONE) {
       </script>
       <!-- sementara pake home.php untuk login -->
       <!-- <a href="index.php">  -->
-        <button>
+        <a>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         Submit
-        </button>
+       </a>
         
       <!-- </a> -->
     </form>

@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kembalian</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="components/css/styleBayar.css">
-</head>
-<>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="components/css/styleBayar.css">
   <div class="container">
     <div class="canvas">
       <div class="card float-end">
@@ -83,13 +74,8 @@
       </div>
     </div>
   </div>
+  </div>
 </div>
-    </div></div>
-
-<?php
-require 'menu.php';
-?>
-  <!-- Bootstrap JS (optional) -->
+</div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+

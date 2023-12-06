@@ -1,8 +1,13 @@
+-- Active: 1683684472100@@127.0.0.1@3306@projekkantin
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
 /* Created on:     30/11/2023 23:56:46                          */
 /*==============================================================*/
-
+-- ATTENTION!!!! ATTENTION!!!
+-- agar tidak error kalian jalankan drop DATABASE namaDatabaseKalian
+-- habis itu CREATE DATABASE namaDatabaseKalian
+-- habis itu silahkan jalankan semua
+use projekkantin;
 
 drop table if exists DETAIL_TRANSAKSI;
 
@@ -80,7 +85,7 @@ create table TRANSAKSI_SUPPLIER
    HARGA_SUPPLIER       decimal(10,3) not null,
    JUMLAH_PRODUK        int not null,
    TGL_SUPPLY           date not null,
-   "RETURN"             decimal(10,3),
+   RETUR                decimal(10,3),
    primary key (ID_TRANSAKSI_SUPPLIER)
 );
 

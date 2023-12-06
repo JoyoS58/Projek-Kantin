@@ -25,9 +25,9 @@ include "config/koneksi.php";
             header("Location: index.php");
         } else{
             pesan('danger', "Login gagal. Password Anda Salah");
-            header("Location: login.php");
+            header("Location: Login.php");
         }
     } else{
         pesan('warning', "Username tidak ditemukan.");
-        header("Location: login.php");
+        header("Location: Login.php");
     }

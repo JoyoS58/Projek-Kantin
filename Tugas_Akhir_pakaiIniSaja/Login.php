@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-//include fungsi/pesan_kilat.php;
+include 'function/pesanKilat.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
       <?php
       if (isset($_SESSION['_flashdata'])) {
         foreach ($_SESSION['_flashdata'] as $key => $val) {
-            //echo get_flashdata($key);
+            echo get_flashdata($key);
         }
       }
       ?>
@@ -38,7 +38,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <input type="password" name="Password" placeholder="Password" required="">
         <label>Password</label>
       </div>
-      <!-- sementara pake home.php untuk login -->
+    
       <a href="index.php"> 
         <span></span>
         <span></span>

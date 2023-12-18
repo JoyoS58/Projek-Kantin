@@ -1,0 +1,32 @@
+body{
+    width: 100%;
+    min-height: 100%;
+    background: #36CFFF;
+    /* background: linear-gradient(to top, #36CFFF, #FFFFFF); */
+}
+naV{
+    background: #36CFFF;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    background: #36CFFF;
+    display: flex;
+    align-items: center;
+    margin: 0 24px;
+}
+.header .menu-icon{
+    color: #333;
+    font-size: 40px;
+    cursor: pointer;
+    margin-left: 100px;
+}
+.header .logo-name{
+    color: #333;
+    font-size: 22px;
+    font-weight: 500;
+}

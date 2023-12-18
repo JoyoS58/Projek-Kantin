@@ -1,7 +1,33 @@
 <?php
-date_default_timezone_set("Asia/Jakarta");
-$koneksi = mysqli_connect("localhost", "root", "", "kantin");
+class Database
+{
+    private $host = 'localhost'; // Ganti dengan host database Anda
+    private $username = 'root'; // Ganti dengan username database Anda
+    private $password = ''; // Ganti dengan password database Anda
+    private $database = 'kantin'; // Ganti dengan nama database Anda
+    public $conn;
 
-if(mysqli_connect_errno()){
-    die("Koneksi database gagal: " . mysqli_connect_error());
+    public function __construct()
+    {
+        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->database);
+        if ($this->conn->connect_error) {
+            die("Koneksi gagal: " . $this->conn->connect_error);
+        }
+    }
+
+    public function getConnection()
+    {
+        return $this->conn;
+    }
+
+    public function escapeString($string)
+    {
+        return $this->conn->real_escape_string($string);
+    }
+
+    public function executeQuery($query)
+    {
+        return $this->conn->query($query);
+    }
 }
+?>

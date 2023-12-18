@@ -1,45 +1,40 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-include "config/koneksi.php";
-include "function/pesanKilat.php";
-include "function/antiInjection.php";
+session_start();
 
-$username = antiinjection($koneksi, $_POST['username']);
-$password = antiinjection($koneksi, $_POST['password']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['Username'];
+    $password = $_POST['Password'];
 
-$query = "SELECT username, level, password FROM users WHERE username = '$username'";
-$result = mysqli_query($koneksi, $query);
+    include "config/koneksi.php";
+    $database = new Database();
+    $koneksi = $database->getConnection();
 
-if ($result) {
-    $row = mysqli_fetch_assoc($result);
-
-    if ($row) {
-        mysqli_close($koneksi);
-        // $salt=$row['salt'];
-        $hashed_password = password_hash($row['password'], PASSWORD_DEFAULT);
-        echo $password . "password <br>";
-        echo $hashed_password . "hashed <br>";
-        if ($hashed_password !== null) {
-            if (password_verify($password, $hashed_password)) {
-                $_SESSION['username'] = $row['username'];
-                $_SESSION['level'] = $row['level'];
-                header("Location: index.php");
-            } else {
-                pesan('danger', "Login gagal. Password Anda Salah");
-                header("Location: login.php");
-                // echo "Apa ini";
-            }
-        } else {
-            pesan('warning', "Username tidak ditemukan.");
-            header("Location: login.php");
-            // echo "Atau ini";
-        }
-    } else {
-        echo "Username tidak ditemukan";
+    if ($koneksi->connect_error) {
+        die("Connection Failed " . $koneksi->connect_error);
     }
-} else {
-    echo "Query error: " . mysqli_error($koneksi);
+
+    if ($koneksi) {
+        // Sanitize input to prevent SQL injection
+        $username = mysqli_real_escape_string($koneksi, $username);
+
+        $query = "SELECT ID_USER, PASSWORD, LEVEL FROM users WHERE USERNAME = '$username'";
+        $result = mysqli_query($koneksi, $query);
+
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            if ($row && md5($password) === $row['PASSWORD']) {
+                $_SESSION["user"] = $row['ID_USER'];
+                $_SESSION["levelUser"] = $row['LEVEL'];
+
+                if ($row['LEVEL'] === "kasir") {
+                    header("Location: index.php");
+                }elseif ($row['LEVEL'] === "pemilik") {
+                    header("Location: index.php");
+                }
+            }
+        }
+
+        mysqli_close($koneksi);
+    }
 }
-// header("Location: index.php");
+?>

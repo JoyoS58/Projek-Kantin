@@ -2,17 +2,19 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
+require 'StokBarang.php';
 require '../config/koneksi.php';
 
-class UpdateTransaksi
-{
+class Transaksi {
     private $db;
 
     public function __construct()
     {
         $this->db = new Database();
+        $this->stokBarang = new StokBarang();
     }
+
+    // ... (fungsi-fungsi transaksi lainnya)
 
     public function updateTransaksi($amountPaid, $paymentMethod)
     {
@@ -28,6 +30,68 @@ class UpdateTransaksi
             echo "Error: " . $this->db->connection->error;
         }
     }
+
+    public function hapusTransaksi($id_transaksi) {
+        // Ambil data transaksi sebelum dihapus
+        $transaksi_sebelum_hapus = $this->ambilDataTransaksi($id_transaksi);
+    
+        // Hapus detail transaksi
+        $queryDetailTransaksi = "DELETE FROM DETAIL_TRANSAKSI WHERE ID_TRANSAKSI = '$id_transaksi'";
+        $resultDetailTransaksi = $this->db->executeQuery($queryDetailTransaksi);
+    
+        // Hapus transaksi
+        $queryTransaksi = "DELETE FROM TRANSAKSI WHERE ID_TRANSAKSI = '$id_transaksi'";
+        $resultTransaksi = $this->db->executeQuery($queryTransaksi);
+    
+        if ($resultDetailTransaksi && $resultTransaksi) {
+            // Transaksi berhasil dihapus, kembalikan stok barang ke nilai awal
+            $this->kembalikanStokBarang($transaksi_sebelum_hapus);
+    
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private function ambilDataTransaksi($id_transaksi) {
+        // Implementasikan pengambilan data transaksi berdasarkan ID_TRANSAKSI
+        // Sesuaikan dengan struktur tabel dan kebutuhan aplikasi Anda
+    
+        $query = "SELECT * FROM TRANSAKSI WHERE ID_TRANSAKSI = '$id_transaksi'";
+        $resultTransaksi = $this->db->executeQuery($query);
+    
+        if ($resultTransaksi->num_rows == 1) {
+            $transaksi = $resultTransaksi->fetch_assoc();
+    
+            // Ambil detail transaksi
+            $queryDetail = "SELECT * FROM DETAIL_TRANSAKSI WHERE ID_TRANSAKSI = '$id_transaksi'";
+            $resultDetail = $this->db->executeQuery($queryDetail);
+    
+            $detail_transaksi = [];
+    
+            while ($detail = $resultDetail->fetch_assoc()) {
+                $detail_transaksi[] = $detail;
+            }
+    
+            $transaksi['detail_transaksi'] = $detail_transaksi;
+    
+            return $transaksi;
+        } else {
+            return null; // Atau implementasikan cara penanganan ketika transaksi tidak ditemukan
+        }
+    }
+    
+    
+    private function kembalikanStokBarang($transaksi) {
+        // Kembalikan stok barang ke nilai awal sebelum transaksi dilakukan
+        foreach ($transaksi['detail_transaksi'] as $detail) {
+            $id_barang = $detail['ID_PRODUK']; // Ubah ke 'id_produk'
+            $stok_awal = $_SESSION['stok_awal'][$id_barang];
+    
+            // Update stok barang di database dengan nilai stok awal
+            $this->stokBarang->updateStokBarang($id_barang, $stok_awal);
+        }
+    }    
 }
 class SearchBarang
 {
@@ -53,10 +117,12 @@ class SearchBarang
 class PilihBarang
 {
     private $db;
+    private $stokBarang;
 
     public function __construct()
     {
         $this->db = new Database();
+        $this->stokBarang = new StokBarang();
     }
 
     public function pilihBarang($selectedProducts, $totalHarga, $idUser)
@@ -79,20 +145,27 @@ class PilihBarang
 
             $_SESSION['selected_products'] = $selectedProducts;
 
+            // Kurangi stok barang
+            $this->stokBarang->kurangiStokBarang($selectedProducts);
+            
             echo "Pemrosesan pilihan barang berhasil. Total Harga: $totalHarga";
         } else {
             echo "Error: " . $this->db->connection->error;
         }
     }
+
+    // Metode lainnya
 }
 
+//  indexindexindexindexindexindexindexindex
+//  indexindexindexindexindexindexindexindex
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
 
     // Buat objek pilihBarang
     $pilihBarang = new PilihBarang();
     // Buat objek updateTransaksi
-    $updateTransaksi = new UpdateTransaksi();
+    $transaksi = new Transaksi();
     $searchBarang = new searchBarang();
 
     switch ($action) {
@@ -102,10 +175,13 @@ if (isset($_POST['action'])) {
             break;
         case 'updateTransaksi':
             // Panggil metode updateTransaksi
-            $updateTransaksi->updateTransaksi($_POST['amountPaid'], $_POST['paymentMethod']);
+            $transaksi->updateTransaksi($_POST['amountPaid'], $_POST['paymentMethod']);
             break;
         case 'searchBarang':
             $searchBarang->searchBarang($_POST['keyword']);
+            break;
+        case 'hapusTransaksi':
+            $transaksi->hapusTransaksi($_POST['idTransaksi']);
             break;
         // Tambahkan case lainnya jika ada lebih banyak aksi yang perlu ditangani
         default:

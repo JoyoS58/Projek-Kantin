@@ -119,7 +119,6 @@ function prosesPilihanBarang() {
                 // Redirect atau lakukan operasi lainnya setelah pemrosesan selesai
                 window.location.href = 'bayar.php';
                 // window.location.href = '#';
-                // window.location.href = '#';
             }
         });
     } else {

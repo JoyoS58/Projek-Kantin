@@ -84,7 +84,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="container">
             <div class="row">
                 <div class="col-md-4 offset-md-10">
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='pilihBarang.php'">Kembali</button>
+                    <button type="button" class="btn btn-primary" onclick="kembaliKePilihBarang()">Kembali</button>
                     <button type="button" class="btn btn-success" onclick="updateTransaksi()">Bayar</button>
                 </div>
             </div>
@@ -99,6 +99,24 @@ require './menu.php';
   <!-- Bootstrap JS (optional) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    function kembaliKePilihBarang() {
+        // Ambil nilai ID transaksi dari PHP
+        var idTransaksi = <?php echo $_SESSION['id_transaksi']; ?>;
+
+        // Lakukan AJAX untuk menghapus transaksi
+        $.ajax({
+            type: 'POST',
+            url: '../../Class/Transaksi.php',
+            data: { action: 'hapusTransaksi', idTransaksi: idTransaksi },
+            success: function(response) {
+                // Handle respons dari server
+                console.log(response);
+                // Redirect atau lakukan operasi lainnya setelah pemrosesan selesai
+                window.location.href = 'pilihBarang.php';
+                // window.location.href = '#';
+            }
+        });
+    }
     function updateKembalian() {
         // Ambil nilai total pembelian dari PHP
         var hargaTotal = <?php echo $hargaTotal; ?>;
@@ -127,8 +145,8 @@ require './menu.php';
                 // Handle respons dari server
                 console.log(response);
                 // Redirect atau lakukan operasi lainnya setelah pemrosesan selesai
-                // window.location.href = 'index.php?page=kasir';
-                window.location.href = '#';
+                window.location.href = 'pilihBarang.php';
+                // window.location.href = '#';
             }
         });
     }

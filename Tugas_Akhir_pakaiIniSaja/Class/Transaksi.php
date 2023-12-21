@@ -80,6 +80,47 @@ class Transaksi {
             return null; // Atau implementasikan cara penanganan ketika transaksi tidak ditemukan
         }
     }
+
+    public function hapusTransaksiByBarang($id_barang)
+    {
+        // Ambil data transaksi sebelum dihapus
+        $transaksi_sebelum_hapus = $this->ambilDataTransaksiByBarang($id_barang);
+
+        // Hapus detail transaksi
+        $queryDetailTransaksi = "DELETE FROM DETAIL_TRANSAKSI WHERE ID_PRODUK = '$id_barang'";
+        $resultDetailTransaksi = $this->db->executeQuery($queryDetailTransaksi);
+
+        // Hapus transaksi
+        $queryTransaksi = "DELETE FROM TRANSAKSI WHERE ID_TRANSAKSI = '{$transaksi_sebelum_hapus['ID_TRANSAKSI']}'";
+        $resultTransaksi = $this->db->executeQuery($queryTransaksi);
+
+        if ($resultDetailTransaksi && $resultTransaksi) {
+            // Transaksi berhasil dihapus, kembalikan stok barang ke nilai awal
+            $this->kembalikanStokBarang($transaksi_sebelum_hapus);
+
+            echo "Transaksi berhasil dihapus berdasarkan ID Barang.";
+        } else {
+            echo "Error: " . $this->db->connection->error;
+        }
+    }
+
+    private function ambilDataTransaksiByBarang($id_barang)
+    {
+        // Implementasikan pengambilan data transaksi berdasarkan ID_PRODUK
+        // Sesuaikan dengan struktur tabel dan kebutuhan aplikasi Anda
+
+        $query = "SELECT t.ID_TRANSAKSI, t.TGL_TRANSAKSI 
+                  FROM DETAIL_TRANSAKSI dt
+                  INNER JOIN TRANSAKSI t ON dt.ID_TRANSAKSI = t.ID_TRANSAKSI
+                  WHERE dt.ID_PRODUK = '$id_barang'";
+        $resultTransaksi = $this->db->executeQuery($query);
+
+        if ($resultTransaksi->num_rows == 1) {
+            return $resultTransaksi->fetch_assoc();
+        } else {
+            return null; // Atau implementasikan cara penanganan ketika transaksi tidak ditemukan
+        }
+    }
     
     
     private function kembalikanStokBarang($transaksi) {
@@ -159,37 +200,6 @@ class PilihBarang
 
 //  indexindexindexindexindexindexindexindex
 //  indexindexindexindexindexindexindexindex
-if (isset($_POST['action'])) {
-    $action = $_POST['action'];
 
-    // Buat objek pilihBarang
-    $pilihBarang = new PilihBarang();
-    // Buat objek updateTransaksi
-    $transaksi = new Transaksi();
-    $searchBarang = new searchBarang();
-
-    switch ($action) {
-        case 'pilihBarang':
-            // Panggil metode pilihBarang
-            $pilihBarang->pilihBarang($_POST['selectedProducts'], $_POST['totalHarga'], $_SESSION['user']);
-            break;
-        case 'updateTransaksi':
-            // Panggil metode updateTransaksi
-            $transaksi->updateTransaksi($_POST['amountPaid'], $_POST['paymentMethod']);
-            break;
-        case 'searchBarang':
-            $searchBarang->searchBarang($_POST['keyword']);
-            break;
-        case 'hapusTransaksi':
-            $transaksi->hapusTransaksi($_POST['idTransaksi']);
-            break;
-        // Tambahkan case lainnya jika ada lebih banyak aksi yang perlu ditangani
-        default:
-            echo "Aksi tidak valid.";
-            break;
-    }
-} else {
-    echo "Aksi tidak diberikan.";
-}
 
 ?>

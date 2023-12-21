@@ -20,3 +20,7 @@ body{
 hr{
     color: #000;
 }
+.table-responsive {
+    max-height: 300px; /* Set the maximum height for the table */
+    overflow-y: auto; /* Add a vertical scrollbar if the content overflows */
+}

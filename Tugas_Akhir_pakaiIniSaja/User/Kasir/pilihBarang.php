@@ -65,7 +65,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '../../Class/Transaksi.php',
+            url: '../../function/prosesTransaksi.php',
             data: {action: 'searchBarang', keyword: keyword },
             success: function (response) {
                 $('#searchResult').html(response);
@@ -115,7 +115,7 @@ function prosesPilihanBarang() {
         // Lakukan AJAX untuk mengirim data ke server
         $.ajax({
             type: 'POST',
-            url: '../../Class/Transaksi.php',
+            url: '../../function/prosesTransaksi.php',
             data: { action: 'pilihBarang',selectedProducts: selectedProducts, totalHarga: totalHarga },
             success: function (response) {
                 // Handle respons dari server

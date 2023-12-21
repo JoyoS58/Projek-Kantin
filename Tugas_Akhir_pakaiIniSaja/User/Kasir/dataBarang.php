@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editIdBarang'])) {
     header("Location: dataBarang.php");
     exit();
 }
-if (isset($_GET['action']) && $_GET['action'] === 'delete') {
+if (isset($_GET['action']) && $_GET['action'] === 'deleteByIdProduk') {
     $id = $_GET['ID_PRODUK'];
     $produk->deleteProduk($id);
 }
@@ -81,7 +81,7 @@ $tampil = $produk->readProduk();
                                 <!-- <a href="dataBarang.php?action=edit&id=<?php echo $show['ID_PRODUK']; ?>" class="btn btn-warning btn-sm">Edit</a> -->
                                 <!-- <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal" data-userid="<?php echo $show['ID_USER']; ?>">Edit</button> -->
                                 <!-- <button type="button" class="btn btn-sm btn-warning btn-action" data-userid="<?php echo $show['ID_USER']; ?>" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button> -->
-                                <?php echo "<a href='dataBarang.php?action=delete&ID_PRODUK=" . $show['ID_PRODUK'] . "' class='btn btn-danger btn-sm'>Delete</a>"; ?>
+                                <?php echo "<a href='dataBarang.php?action=deleteByIdProduk&ID_PRODUK=" . $show['ID_PRODUK'] . "' class='btn btn-danger btn-sm'>Delete</a>"; ?>
                             </td>
                         </tr>
                         <?php

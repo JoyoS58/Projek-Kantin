@@ -106,7 +106,7 @@ require './menu.php';
         // Lakukan AJAX untuk menghapus transaksi
         $.ajax({
             type: 'POST',
-            url: '../../Class/Transaksi.php',
+            url: '../../function/prosesTransaksi.php',
             data: { action: 'hapusTransaksi', idTransaksi: idTransaksi },
             success: function(response) {
                 // Handle respons dari server
@@ -139,7 +139,7 @@ require './menu.php';
         // Lakukan AJAX untuk mengirim data ke server
         $.ajax({
             type: 'POST',
-            url: '../../Class/Transaksi.php', // Ganti dengan alamat file yang sesuai
+            url: '../../function/prosesTransaksi.php', // Ganti dengan alamat file yang sesuai
             data: { action: 'updateTransaksi',amountPaid: amountPaid, paymentMethod: paymentMethod, hargaTotal: hargaTotal },
             success: function(response) {
                 // Handle respons dari server

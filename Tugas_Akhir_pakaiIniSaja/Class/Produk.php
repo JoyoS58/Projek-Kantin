@@ -15,6 +15,9 @@ class Produks{
 
         return $result;
     }
+    public function getLastInsertedId() {
+        return $this->db->conn->insert_id;
+    }
 
     public function updateProduk($id, $namaProduk, $kategori,$stok,$hargaJual)
     {

@@ -30,6 +30,7 @@
                             <th>Jumlah Terjual</th>
                             <th>Harga Total</th>
                             <th>Tanggal Pengembalian</th>
+                            <th>Retur</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,7 +53,8 @@
                                     p.NAMA_PRODUK,
                                     SUM(dt.QTY) AS Jumlah_Terjual,
                                     SUM(dt.SUB_TOTAL) AS Harga_Total,
-                                    MAX(ts.TGL_SUPPLY) AS tgl_pengembalian
+                                    ts.TGL_SUPPLY AS tgl_pengembalian,
+                                    ts.RETURNS
                                 FROM transaksi_supplier ts
                                 INNER JOIN produk p ON ts.ID_PRODUK = p.ID_PRODUK
                                 INNER JOIN supplier s ON ts.ID_SUPPLIER = s.ID_SUPPLIER
@@ -74,6 +76,7 @@
                                     echo "<td>" . $row["Jumlah_Terjual"] . "</td>";
                                     echo "<td>" . $row["Harga_Total"] . "</td>";
                                     echo "<td>" . $row["tgl_pengembalian"] . "</td>";
+                                    echo "<td>" . $row["RETURNS"] . "</td>";
                                     echo "</tr>";
                                     $counter++;
                                 }

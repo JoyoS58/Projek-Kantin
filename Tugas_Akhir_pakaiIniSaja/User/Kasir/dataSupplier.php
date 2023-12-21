@@ -48,7 +48,7 @@ $tampil = $supplier->readSupplier();
               <th scope="col">ID Supplier</th>
               <th scope="col">Nama</th>
               <th scope="col">No Telepon</th>
-              <th scope="col">Nama Barang</th>
+              <!-- <th scope="col">Nama Barang</th> -->
               <th scope="col">Aksi</th>
             </tr>
           </thead>
@@ -68,7 +68,7 @@ JOIN produk p ON ts.ID_PRODUK = p.ID_PRODUK
                   <td><?php echo $show['ID_SUPPLIER']; ?></td>
                   <td><?php echo $show['NAMA_SUPPLIER']; ?></td>
                   <td><?php echo $show['NO_TELP']; ?></td>
-                  <td><?php echo $namaBarang ?></td>
+                  <!-- <td><?//php echo $namaBarang ?></td> -->
 
                   <td>
                     <button type="button" class="btn btn-sm btn-warning btn-action" data-bs-toggle="modal" data-bs-target="#editModal" data-idproduk="<?php echo $show['ID_SUPPLIER']; ?>">Edit</button>

@@ -4,7 +4,7 @@ class Database
     private $host = 'localhost'; // Ganti dengan host database Anda
     private $username = 'root'; // Ganti dengan username database Anda
     private $password = ''; // Ganti dengan password database Anda
-    private $database = 'kantin'; // Ganti dengan nama database Anda
+    private $database = 'kantindb'; // Ganti dengan nama database Anda
     public $conn;
 
     public function __construct()

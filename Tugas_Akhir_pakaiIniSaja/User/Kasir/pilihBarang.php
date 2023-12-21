@@ -32,6 +32,7 @@
             </tbody>
         </table>
         <div style="text-align: center;">
+            <p id="pesan"></p>
             <button type="submit" class="btn btn-danger" name="submit" id="selanjutnyaButton" onclick="prosesPilihanBarang()">Selanjutnya >></button>
         </div>
     </div>
@@ -108,6 +109,9 @@ function prosesPilihanBarang() {
         // Tombol selanjutnya diaktifkan
         $('#selanjutnyaButton').prop('disabled', false);
 
+        // Sembunyikan pesan
+        $('#pesan').hide();
+
         // Lakukan AJAX untuk mengirim data ke server
         $.ajax({
             type: 'POST',
@@ -124,7 +128,13 @@ function prosesPilihanBarang() {
     } else {
         // Tidak ada barang yang dipilih, nonaktifkan tombol selanjutnya
         $('#selanjutnyaButton').prop('disabled', true);
-        console.log("Tidak ada barang yang dipilih.");
+
+        // Tampilkan pesan bahwa tidak ada barang yang dipilih
+        $('#pesan').text("Tidak ada barang yang dipilih. Klik tombol aksi terlebih dahulu.").show();
+        setTimeout(function () {
+            $('#selanjutnyaButton').prop('disabled', false);
+            $('#pesan').hide();
+        }, 1500);
     }
 }
 </script>

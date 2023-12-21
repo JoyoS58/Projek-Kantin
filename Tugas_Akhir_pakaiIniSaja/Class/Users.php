@@ -14,6 +14,10 @@ class users{
         return $result;
     }
 
+    public function getLastInsertedId() {
+        return $this->db->conn->insert_id;
+    }
+
     public function updateUser($id,$username,$password,$level){
         $query = "UPDATE users SET USERNAME = '$username', PASSWORD = '$password', LEVEL = '$level' WHERE ID_USER = '$id'";
         $result = $this->db->conn->query($query);
@@ -40,5 +44,16 @@ class users{
             }
         }
         return $data;
+    }
+
+    public function readUserById($id)
+    {
+        $query = "SELECT * FROM users WHERE ID_USER = '$id'";
+        $result = $this->db->conn->query($query);
+        if ($result->num_rows == 1) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
     }
 }

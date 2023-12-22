@@ -28,12 +28,71 @@ class Produks{
     }
 
     public function deleteProduk($id)
-    {
-        $query = "DELETE FROM produk WHERE ID_PRODUK = '$id'";
-        $result = $this->db->conn->query($query);
+{
+    // Get ID_TRANSAKSI from DETAIL_TRANSAKSI
+    $selectIdDetail = "SELECT ID_TRANSAKSI FROM DETAIL_TRANSAKSI WHERE ID_PRODUK = '$id'";
+    $result = $this->db->conn->query($selectIdDetail);
+    $data = [];
 
-        return $result;
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row['ID_TRANSAKSI'];
+        }
+
+        // Delete from DETAIL_TRANSAKSI
+        $queryDeleteDetail = "DELETE FROM DETAIL_TRANSAKSI WHERE ID_TRANSAKSI = '$data[0]'";
+        $resultDeleteDetail = $this->db->conn->query($queryDeleteDetail);
+        
+        if ($resultDeleteDetail) {
+            // Delete from TRANSAKSI
+            foreach ($data as $idTransaksi) {
+                $queryDeleteTransaksi = "DELETE FROM TRANSAKSI WHERE ID_TRANSAKSI = '$idTransaksi'";
+                $resultDeleteTransaksi = $this->db->conn->query($queryDeleteTransaksi);
+
+                if (!$resultDeleteTransaksi) {
+                    echo "Error menghapus transaksi: " . $this->db->conn->error;
+                    // Stop the loop if there's an error
+                    break;
+                }
+            }
+
+            // Delete from TRANSAKSI_SUPPLIER
+            $queryDeleteSupplier = "DELETE FROM TRANSAKSI_SUPPLIER WHERE ID_PRODUK = '$id'";
+            $resultDeleteSupplier = $this->db->conn->query($queryDeleteSupplier);
+
+            if ($resultDeleteSupplier) {
+                // Finally, delete from PRODUK
+                $queryDeleteProduk = "DELETE FROM produk WHERE ID_PRODUK = '$id'";
+                $resultDeleteProduk = $this->db->conn->query($queryDeleteProduk);
+
+                if ($resultDeleteProduk) {
+                    return true;
+                } else {
+                    echo "Error menghapus produk: " . $this->db->conn->error;
+                    return false;
+                }
+            } else {
+                echo "Error menghapus transaksi supplier: " . $this->db->conn->error;
+                return false;
+            }
+        } else {
+            echo "Error menghapus detail transaksi: " . $this->db->conn->error;
+            return false;
+        }
+    } else {
+        // If there are no related transactions, just delete from PRODUK
+        $queryDeleteProduk = "DELETE FROM produk WHERE ID_PRODUK = '$id'";
+        $resultDeleteProduk = $this->db->conn->query($queryDeleteProduk);
+
+        if ($resultDeleteProduk) {
+            return true;
+        } else {
+            echo "Error menghapus produk: " . $this->db->conn->error;
+            return false;
+        }
     }
+}
+
 
     public function readProduk()
     {

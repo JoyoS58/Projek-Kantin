@@ -66,12 +66,6 @@
 
           <div class="bottom-content">
             <li class="list">
-              <a href="#" class="nav-link">
-                <i class="bx bx-cog icon"></i>
-                <span class="link">Settings</span>
-              </a>
-            </li>
-            <li class="list">
               <a href="../../logout.php" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
                 <span class="link">Logout</span>

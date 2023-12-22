@@ -1,5 +1,5 @@
 <?php
-// include 'Produk.php';
+
 class Retur
 {
     private $db;
@@ -64,34 +64,11 @@ class Retur
 
     public function hapusTransaksi($idTransaksiSupplier)
     {
-        include 'Produk.php';
-        $produk = new Produks();
-        $selectIdProduk = "SELECT ID_PRODUK FROM transaksi_supplier WHERE ID_SUPPLIER = '$idTransaksiSupplier'";
-        $resultIdProduk = $this->db->conn->query($selectIdProduk);
-        $dataProduk = [];
-        
-        $queryDeleteTransaksiSupplier = "DELETE FROM transaksi_supplier WHERE ID_SUPPLIER = '$idTransaksiSupplier'";
-        $resultDeleteTransaksiSupplier = $this->db->conn->query($queryDeleteTransaksiSupplier);
-        if ($resultIdProduk->num_rows > 0) {
-            while ($rowProduk = $resultIdProduk->fetch_assoc()) {
-                $dataProduk[] = $rowProduk['ID_PRODUK'];
-            }
+        $idTransaksiSupplier = $this->db->escapeString($idTransaksiSupplier);
 
-            // Delete each product
-            foreach ($dataProduk as $idProduk) {
-                $produk->deleteProduk($idProduk);
-            }
-        }
+        $query = "DELETE FROM transaksi_supplier WHERE ID_TRANSAKSI_SUPPLIER = '$idTransaksiSupplier'";
 
-        // Finally, delete from supplier
-        $queryDeleteSupplier = "DELETE FROM supplier WHERE ID_SUPPLIER = '$idTransaksiSupplier'";
-        $resultDeleteSupplier = $this->db->conn->query($queryDeleteSupplier);
-
-        if (!$resultDeleteSupplier) {
-            throw new Exception("Error menghapus supplier: " . $this->db->conn->error);
-        }
-
-        return $this->db->executeQuery($resultDeleteSupplier);
+        return $this->db->executeQuery($query);
     }
 
     private function escapeString($value)

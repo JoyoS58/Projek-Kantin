@@ -24,10 +24,34 @@ class Suppliers{
 
     public function deleteSupplier($id)
     {
-        $query = "DELETE FROM supplier WHERE ID_SUPPLIER = '$id'";
-        $result = $this->db->conn->query($query);
+        include 'Produk.php';
+        $produk = new Produks();
+        $selectIdProduk = "SELECT ID_PRODUK FROM transaksi_supplier WHERE ID_SUPPLIER = '$id'";
+        $resultIdProduk = $this->db->conn->query($selectIdProduk);
+        $dataProduk = [];
+        
+        $queryDeleteTransaksiSupplier = "DELETE FROM transaksi_supplier WHERE ID_SUPPLIER = '$id'";
+        $resultDeleteTransaksiSupplier = $this->db->conn->query($queryDeleteTransaksiSupplier);
+        if ($resultIdProduk->num_rows > 0) {
+            while ($rowProduk = $resultIdProduk->fetch_assoc()) {
+                $dataProduk[] = $rowProduk['ID_PRODUK'];
+            }
 
-        return $result;
+            // Delete each product
+            foreach ($dataProduk as $idProduk) {
+                $produk->deleteProduk($idProduk);
+            }
+        }
+
+        // Finally, delete from supplier
+        $queryDeleteSupplier = "DELETE FROM supplier WHERE ID_SUPPLIER = '$id'";
+        $resultDeleteSupplier = $this->db->conn->query($queryDeleteSupplier);
+
+        if (!$resultDeleteSupplier) {
+            throw new Exception("Error menghapus supplier: " . $this->db->conn->error);
+        }
+
+        return $this->db->conn->query($queryDeleteSupplier);
     }
 
     public function readSupplier()

@@ -132,6 +132,39 @@ class Transaksi {
             // Update stok barang di database dengan nilai stok awal
             $this->stokBarang->updateStokBarang($id_barang, $stok_awal);
         }
+    }
+    public function sumTransaksi()
+    {
+        $query = "SELECT COUNT(*) AS jumlah_transaksi FROM transaksi";
+        $result = $this->db->conn->query($query);
+        $row = mysqli_fetch_assoc($result);
+        $jumlah_transaksi = $row['jumlah_transaksi'];
+
+        return $jumlah_transaksi;
+    }
+
+    public function sumBarangTerjual()
+    {
+        $query = "SELECT SUM(QTY) AS total_terjual FROM detail_transaksi";
+        $result = $this->db->conn->query($query);
+        $row = mysqli_fetch_assoc($result);
+        $barangTerjual = $row['total_terjual'];
+
+        return $barangTerjual;
+    }
+
+    public function readProdukPalingLaku()
+    {
+        $query = "SELECT p.NAMA_PRODUK, SUM(dt.qty) AS total_terjual
+                FROM produk p
+                JOIN detail_transaksi dt ON p.id_produk = dt.id_produk
+                GROUP BY p.NAMA_PRODUK
+                ORDER BY total_terjual DESC
+                LIMIT 5;
+                ";
+        $result = $this->db->conn->query($query);
+
+        return $result;
     }    
 }
 class SearchBarang

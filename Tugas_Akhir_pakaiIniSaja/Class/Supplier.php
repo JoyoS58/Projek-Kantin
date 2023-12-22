@@ -77,4 +77,14 @@ class Suppliers{
 
         return $result;
     }
+
+    public function sumSupplier()
+    {
+        $query = "SELECT COUNT(*) AS jumlah_Supplier FROM supplier";
+        $result = $this->db->conn->query($query);
+        $row = mysqli_fetch_assoc($result);
+        $jumlah_supplier = $row['jumlah_Supplier'];
+
+        return $jumlah_supplier;
+    }
 }

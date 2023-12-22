@@ -10,18 +10,17 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kantin JTI</title>
+  <title>SIKAN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="Login.css">
   <link rel="icon" href="img/Logo-JTI.png" type="png">
 </head>
 
 <body>
-  <div class="header">
-    <img src="img/Man1.jpg" alt="">
-    <h1>SIKAN</h1>
-  </div>
   <div class="login-box">
+    <h1>SIKAN</h1>
+    <img src="img/logoKantin.jpg" alt="">
     <h2>Login</h2>
     <form action="cek_login.php" method="post">
       <?php
@@ -39,15 +38,7 @@ session_start();
         <input type="password" id="Password" name="Password" placeholder="Password" required="">
         <label>Password</label>
       </div>
-      <button type="submit">
-
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Submit
-
-      </button>
+      <button class="btn" type="submit">Submit</button>
 
     </form>
   </div>

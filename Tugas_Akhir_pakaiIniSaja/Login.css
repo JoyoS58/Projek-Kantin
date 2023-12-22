@@ -5,15 +5,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: linear-gradient(#3105DE 50%,#ffff);
+  background: linear-gradient(#6157ff,#ee49fd);
 }
 
 .login-box {
   position: absolute;
-  margin-top: 200px;
+  margin-top: 25%;
   left: 50%;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: fit-content;
   padding: 40px;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.5);
@@ -23,9 +23,11 @@ body {
 }
 
 .login-box h2 {
+  background: linear-gradient(to right,#6157ff,#ee49fd);
+  background-clip: text;
   margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
+  padding-top: 30px;
+  color: transparent;
   text-align: center;
 }
 
@@ -99,7 +101,7 @@ body {
   animation: btn-anim1 1s linear infinite;
 }
 
-@keyframes btn-anim1 {
+/* @keyframes btn-anim1 {
   0% {
     left: -100%;
   }
@@ -107,7 +109,7 @@ body {
   100% {
     left: 100%;
   }
-}
+} */
 
 .login-box a span:nth-child(2) {
   top: -100%;
@@ -119,7 +121,7 @@ body {
   animation-delay: 0.25s;
 }
 
-@keyframes btn-anim2 {
+/* @keyframes btn-anim2 {
   0% {
     top: -100%;
   }
@@ -127,7 +129,7 @@ body {
   100% {
     top: 100%;
   }
-}
+} */
 
 .login-box a span:nth-child(3) {
   bottom: 0;
@@ -139,7 +141,7 @@ body {
   animation-delay: 0.5s;
 }
 
-@keyframes btn-anim3 {
+/* @keyframes btn-anim3 {
   0% {
     right: -100%;
   }
@@ -147,7 +149,7 @@ body {
   100% {
     right: 100%;
   }
-}
+} */
 
 .login-box a span:nth-child(4) {
   bottom: -100%;
@@ -159,7 +161,7 @@ body {
   animation-delay: 0.75s;
 }
 
-@keyframes btn-anim4 {
+/* @keyframes btn-anim4 {
   0% {
     bottom: -100%;
   }
@@ -167,7 +169,7 @@ body {
   100% {
     bottom: 100%;
   }
-}
+} */
 
 /* -- YouTube Link Styles -- */
 
@@ -221,21 +223,47 @@ body {
   font-family: "Rubik", sans-serif;
   transition: color 600ms;
 }
-
-.header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.header h1 {
-  color: #fff;
+.login-box{
   text-align: center;
-  padding-top: 20px;
-  position: relative;
+}
+.login-box img {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px
+}
+.login-box h1{
+  background: linear-gradient(to right,#6157ff,#ee49fd);
+  background-clip: text;
+  color: transparent;
+  margin-top: 0;
+  padding-top: 10px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+.btn{
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #fff;
+background:linear-gradient(#6157ff,#ee49fd);
+padding: 10px 30px;
+border: 2px solid #0066cc;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 50px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
 }
 
-.header img {
-  width: 150px;
-  height: 150px;
+.btn:hover{
+
+transition : 1000ms;
+padding: 10px 50px;
+transform : translateY(-0px);
+background: #fff;
+color: #0066cc;
+border: solid 2px #0066cc;
 }

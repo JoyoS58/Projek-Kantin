@@ -118,4 +118,14 @@ class Produks{
             return null;
         }
     }
+
+    public function sumProduk()
+    {
+        $query = "SELECT COUNT(*) AS jumlah_barang FROM produk";
+        $result = $this->db->conn->query($query);
+        $row = mysqli_fetch_assoc($result);
+        $jumlah_barang = $row['jumlah_barang'];
+
+        return $jumlah_barang;
+    }
 }

@@ -1,10 +1,29 @@
 <?php
-require_once '../../Class/Produk.php';
-require_once  '../../Class/Supplier.php';
-require_once  '../../Class/Transaksi.php';
-$produk = new Produks();
-$supplier = new Suppliers();
-$transaksi = new Transaksi();
+// require_once '../../Class/Produk.php';
+// require_once  '../../Class/Supplier.php';
+// require_once  '../../Class/Transaksi.php';
+require_once '../../config/koneksi.php';
+// $produk = new Produks();
+// $supplier = new Suppliers();
+// $transaksi = new Transaksi();
+$database = new Database();
+$conn = $database->getConnection();
+
+$query = "SELECT COUNT(*) AS jumlah_barang FROM produk";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+$jumlah_barang = $row['jumlah_barang'];
+
+$query = "SELECT COUNT(*) AS jumlah_Supplier FROM supplier";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+$jumlah_supplier = $row['jumlah_Supplier'];
+
+$query = "SELECT COUNT(*) AS jumlah_transaksi FROM transaksi";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+$jumlah_transaksi = $row['jumlah_transaksi'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,66 +37,80 @@ $transaksi = new Transaksi();
 </head>
 
 <body>
-  <div class="container">
+  <div class="container mt-5">
 
-    <div class="row">
-
-      <div class="four col-md-3">
-        <div class="counter-box card-1">
-          <span class="counter"><?php echo $produk->sumProduk() ?></span>
-          <p>Jumlah Barang</p>
+  <div class="row">
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Barang</h5>
+            <p class="card-text">barang sejumlah <?= $jumlah_barang ?>.</p>
+          </div>
         </div>
       </div>
-      <div class="four col-md-3">
-        <div class="counter-box card-2">
-          <span class="counter"><?php echo $supplier->sumSupplier() ?></span>
-          <p>Jumlah Supplier</p>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Supplier</h5>
+            <p class="card-text">Supplier sejumlah <?= $jumlah_supplier ?>.</p>
+          </div>
         </div>
       </div>
-      <div class="four col-md-3">
-        <div class="counter-box card-3">
-          <span class="counter"><?php echo $transaksi->sumTransaksi() ?></span>
-          <p>Jumlah Transaksi</p>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Penjualan</h5>
+            <p class="card-text">Penjualan sejumlah <?= $jumlah_transaksi ?>.</p>
+          </div>
         </div>
       </div>
-      <div class="four col-md-3">
-        <div class="counter-box card-4">
-          <span class="counter"><?php echo $transaksi->sumBarangTerjual() ?></span>
-          <p>Jumlah Barang Terjual</p>
+      <!-- <div class="col-md-3">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Card 1</h5>
+            <p class="card-text">Isi konten untuk Card 1 disini.</p>
+          </div>
         </div>
-      </div>
+      </div> -->
     </div>
-  </div>
-  <div class="container-fluid pt-4 px-4">
-    <div class="text-center rounded p-4 bungkus">
-      <div class="d-flex align-items-center justify-content-between mb-4">
-        <h4 class="mb-0">Barang Paling Laku</h4>
-      </div>
-      <div class="table-responsive">
-        <table class="table text-start align-middle table-bordered table-hover mb-0">
-          <thead>
-            <tr class="text-white">
-              <th scope="col">No</th>
-              <th scope="col">Nama Barang</th>
-              <th scope="col">Jumlah Terjual</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $barangLaris = $transaksi->readProdukPalingLaku();
-            $i = 1;
-            while ($row = mysqli_fetch_assoc($barangLaris)) {
-              echo "<tr>";
-              echo "<td>" . $i . "</td>";
-              echo "<td>" . $row['NAMA_PRODUK'] . "</td>";
-              echo "<td>" . $row['total_terjual'] . "</td>";
-              echo "</tr>";
-              $i++;
-            }
-
-            ?>
-          </tbody>
-        </table>
+    <div class="container-fluid pt-4 px-4">
+      <div class="text-center rounded p-4 bungkus">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h4 class="mb-0">Barang Paling Laku</h4>
+        </div>
+        <div class="table-responsive">
+          <table class="table text-start align-middle table-bordered table-hover mb-0">
+            <thead>
+              <tr class="text-white">
+                <th scope="col">No</th>
+                <th scope="col">Nama Barang</th>
+                <th scope="col">Jumlah Terjual</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $query = "SELECT p.NAMA_PRODUK, SUM(dt.qty) AS total_terjual
+              FROM produk p
+              JOIN detail_transaksi dt ON p.id_produk = dt.id_produk
+              GROUP BY p.NAMA_PRODUK
+              ORDER BY total_terjual DESC
+              LIMIT 5;
+              ";
+              $result = mysqli_query($conn, $query);
+              $i = 1;
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $i . "</td>";
+                echo "<td>" . $row['NAMA_PRODUK'] . "</td>";
+                echo "<td>" . $row['total_terjual'] . "</td>";
+                echo "</tr>";
+                $i++;
+              }
+  
+              ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

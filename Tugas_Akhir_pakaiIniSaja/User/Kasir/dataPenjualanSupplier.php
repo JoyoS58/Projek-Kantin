@@ -54,7 +54,7 @@
                                     SUM(dt.QTY) AS Jumlah_Terjual,
                                     SUM(dt.SUB_TOTAL) AS Harga_Total,
                                     ts.TGL_SUPPLY AS tgl_pengembalian,
-                                    ts.RETURNS
+                                    (HARGA_SUPPLIER*dt.QTY) as RETUR
                                 FROM transaksi_supplier ts
                                 INNER JOIN produk p ON ts.ID_PRODUK = p.ID_PRODUK
                                 INNER JOIN supplier s ON ts.ID_SUPPLIER = s.ID_SUPPLIER
@@ -76,7 +76,7 @@
                                     echo "<td>" . $row["Jumlah_Terjual"] . "</td>";
                                     echo "<td>" . $row["Harga_Total"] . "</td>";
                                     echo "<td>" . $row["tgl_pengembalian"] . "</td>";
-                                    echo "<td>" . $row["RETURNS"] . "</td>";
+                                    echo "<td>" . $row["RETUR"] . "</td>";
                                     echo "</tr>";
                                     $counter++;
                                 }

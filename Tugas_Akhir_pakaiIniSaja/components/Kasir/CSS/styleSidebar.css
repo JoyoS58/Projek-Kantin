@@ -45,7 +45,7 @@ nav .sidebar {
   height: 100%;
   width: 260px;
   padding: 20px 0;
-  background: linear-gradient(to top, #36CFFF, #FFFFFF);
+  background: linear-gradient(to top, #3105DE, #FFFFFF);
   box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
 }
